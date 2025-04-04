@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> <!--
+	bean definitions here -->
+
+	<bean id="myApp"
+		class="com.ibm.spring_core_simple_xml_project.App" />
+	<bean id="flipkart"
+		class="com.ibm.spring_core_simple_xml_project.interfaces.Flipkart" />
+	<bean id="paytm"
+		class="com.ibm.spring_core_simple_xml_project.interfaces.Paytm" />
+
+	<!--Code for Setter Injection-->
+	<bean id="product"
+		class="com.ibm.spring_core_simple_xml_project.setter.Product">
+		<property name="id" value="4123" />
+		<property name="name" value="Mobile-Iphone" />
+	</bean>
+
+	<util:list id="productList">
+		<bean id="product"
+			class="com.ibm.spring_core_simple_xml_project.setter.Product">
+			<property name="id" value="412" />
+			<property name="name" value="Mobile-Iphone" />
+		</bean>
+		<bean id="product"
+			class="com.ibm.spring_core_simple_xml_project.setter.Product">
+			<property name="id" value="413" />
+			<property name="name" value="Iphone" />
+		</bean>
+		<bean id="product"
+			class="com.ibm.spring_core_simple_xml_project.setter.Product">
+			<property name="id" value="413" />
+			<property name="name" value="Mobile" />
+		</bean>
+		<bean id="product"
+			class="com.ibm.spring_core_simple_xml_project.setter.Product">
+			<property name="id" value="123" />
+			<property name="name" value="SAmsung" />
+		</bean>
+	</util:list>
+
+	<bean id="products"
+		class="com.ibm.spring_core_simple_xml_project.setter.Products">
+		<property name="products" ref="productList"></property>
+	</bean>
+
+	<!--Code for constructor injection-->
+	<bean id="customer"
+		class="com.ibm.spring_core_simple_xml_project.constructor.Customer">
+		<constructor-arg name="id" value="052" />
+		<constructor-arg index="1" value="Ankit" />
+		<constructor-arg type="java.lang.String" value="ankit052@gmail.com" />
+	</bean>
+
+</beans>
