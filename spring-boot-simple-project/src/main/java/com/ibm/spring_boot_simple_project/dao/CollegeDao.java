@@ -29,11 +29,12 @@ public class CollegeDao {
 
 	public College fetchCollegeBYIdDao(int id) {
 		Optional<College> optional = collegeRepository.findById(id);
-		if (optional.isPresent()) {
-			return optional.get();
-		} else {
-			return null;
-		}
+		return optional.isPresent()?optional.get():null;
+		// if (optional.isPresent()) {
+		// 	return optional.get();
+		// } else {
+		// 	return null;
+		// }
 	}
 
 	public List<College> getAllCollegeByNameDao(String name) {
